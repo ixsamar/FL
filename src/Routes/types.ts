@@ -3,4 +3,6 @@ export type AppStackParamList = {
   Login: undefined;
   Home: undefined;
   Settings: {id: string} | undefined;
+  Drawer: undefined;
+  HomeMain: undefined;
 };

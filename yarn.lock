@@ -1759,6 +1759,14 @@
     invariant "^2.2.4"
     nullthrows "^1.1.1"
 
+"@react-navigation/bottom-tabs@^7.3.2":
+  version "7.3.2"
+  resolved "https://registry.npmjs.org/@react-navigation/bottom-tabs/-/bottom-tabs-7.3.2.tgz"
+  integrity sha512-gxFQrBTkb8Gf6WGrW2C61JCb5vLFxBLaocNCvNLxPcEMQWuRv+PYIL4NOqWBmmh0+TSMRp/0BI1b+BU6EQfxQQ==
+  dependencies:
+    "@react-navigation/elements" "^2.3.0"
+    color "^4.2.3"
+
 "@react-navigation/core@^7.6.1":
   version "7.6.1"
   resolved "https://registry.npmjs.org/@react-navigation/core/-/core-7.6.1.tgz"
@@ -1771,6 +1779,16 @@
     react-is "^18.2.0"
     use-latest-callback "^0.2.1"
     use-sync-external-store "^1.2.2"
+
+"@react-navigation/drawer@^7.3.0":
+  version "7.3.0"
+  resolved "https://registry.npmjs.org/@react-navigation/drawer/-/drawer-7.3.0.tgz"
+  integrity sha512-L7aPei49hWjH4pVEmzb2jLg2Q2fFg12kVHBaaWYUUmHvtKIigVpodR0pJMb9XrMN9xwLdiWEA3hKTNM4fa1IDA==
+  dependencies:
+    "@react-navigation/elements" "^2.3.0"
+    color "^4.2.3"
+    react-native-drawer-layout "^4.1.2"
+    use-latest-callback "^0.2.1"
 
 "@react-navigation/elements@^2.3.0":
   version "2.3.0"
@@ -5695,6 +5713,13 @@ react-native-dotenv@^3.4.11:
   integrity sha512-6vnIE+WHABSeHCaYP6l3O1BOEhWxKH6nHAdV7n/wKn/sciZ64zPPp2NUdEUf1m7g4uuzlLbjgr+6uDt89q2DOg==
   dependencies:
     dotenv "^16.4.5"
+
+react-native-drawer-layout@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.npmjs.org/react-native-drawer-layout/-/react-native-drawer-layout-4.1.2.tgz"
+  integrity sha512-vAUxIX8OIZ7Xg/HObq2uL6vpYqJDwMsUj4a2vApAlCEB0IYVXLTAXB76F0FJ9vPFgj0VONkEWqG+8bbBp7FSfA==
+  dependencies:
+    use-latest-callback "^0.2.1"
 
 react-native-gesture-handler@^2.24.0:
   version "2.24.0"

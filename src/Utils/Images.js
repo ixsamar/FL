@@ -1,4 +1,4 @@
 export const images = {
-  Profile: require('../Assets/Images/Profile.jpg'),
-  UserDummy: require('../Assets/Images/UserDummy.png'),
+  Profile: require('../Assets/images/Profile.jpg'),
+  UserDummy: require('../Assets/images/UserDummy.png'),
 };

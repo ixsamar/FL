@@ -1,27 +1,78 @@
 import React from 'react';
+import {Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import {AppStackParamList} from './types';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import {useTheme} from '../Utils/Globles';
 
 //Screens
-import Splash from '../Screens/Auth/Splash';
-import Login from '../Screens/Auth/Login';
+import Drawer from '../Layout/Drawer';
 import Home from '../Screens/Main/Home';
 import Settings from '../Screens/Main/Settings';
 
-const Stack = createNativeStackNavigator<AppStackParamList>();
+import Splash from '../Screens/Auth/Splash';
+import Login from '../Screens/Auth/Login';
 
+const Stack = createNativeStackNavigator<AppStackParamList>();
+const DrawerStack = createDrawerNavigator<AppStackParamList>();
+const BottomStack = createBottomTabNavigator<AppStackParamList>();
+
+//Stack Navigation
 const Routes = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{headerShown: false, animation: 'slide_from_right'}}>
-        <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="Drawer" component={DrawerTabHand} />
+
+        {/* <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="Settings" component={Settings} /> */}
       </Stack.Navigator>
     </NavigationContainer>
+  );
+};
+
+//Drawer Navigation
+const DrawerTabHand = () => {
+  const {themeColors} = useTheme();
+  return (
+    <DrawerStack.Navigator
+      screenOptions={{
+        headerShown: false,
+        drawerStyle: {
+          width: wp('100%'),
+        },
+      }}
+      drawerContent={props => (
+        <>
+          <Drawer {...props} />
+        </>
+      )}>
+      <DrawerStack.Screen name="HomeMain" component={BottomTabHandler} />
+    </DrawerStack.Navigator>
+  );
+};
+
+//Bottom Navigation
+const BottomTabHandler = (props: any) => {
+  const {themeColors} = useTheme();
+
+  return (
+    <BottomStack.Navigator
+      screenOptions={() => ({
+        headerShown: false,
+        tabBarActiveTintColor: themeColors.themeColor,
+        tabBarInactiveTintColor: '#959594',
+        flex: 1,
+      })}>
+      <BottomStack.Screen name={'Home'} component={Home} />
+      <BottomStack.Screen name={'Settings'} component={Settings} />
+    </BottomStack.Navigator>
   );
 };
 
