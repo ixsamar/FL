@@ -1,27 +1,15 @@
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, Text, View} from 'react-native';
 import React from 'react';
-import {useTheme} from '../../../Utils/Globles';
+import {styles} from './styles';
 
-const Home = () => {
-  const {themeColors} = useTheme();
-
+const Chats = () => {
   return (
-    <View
-      style={[
-        {backgroundColor: themeColors.backGroundColor},
-        styles.container,
-      ]}>
+    <View style={styles.container}>
       <SafeAreaView>
-        <Text>Home</Text>
+        <Text>Chats</Text>
       </SafeAreaView>
     </View>
   );
 };
 
-export default Home;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+export default Chats;

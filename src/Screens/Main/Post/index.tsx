@@ -2,14 +2,14 @@ import {SafeAreaView, Text, View} from 'react-native';
 import React from 'react';
 import {styles} from './styles';
 
-const Settings = () => {
+const Post = () => {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <Text>Settings</Text>
+        <Text>Post</Text>
       </SafeAreaView>
     </View>
   );
 };
 
-export default Settings;
+export default Post;

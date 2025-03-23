@@ -1,14 +1,15 @@
-import {StyleSheet, Text, View, ActivityIndicator} from 'react-native';
+import {Text, ActivityIndicator} from 'react-native';
 import React, {useEffect} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {FONT, useFont} from '../../../Utils/Globles';
+import {styles} from './styles';
 
 const Splash = ({navigation}: {navigation: any}) => {
   const {FONT_SIZE} = useFont();
 
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('Home');
+      navigation.replace('Login');
     }, 2000);
   }, []);
 
@@ -27,17 +28,3 @@ const Splash = ({navigation}: {navigation: any}) => {
 };
 
 export default Splash;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 36,
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: 20,
-  },
-});

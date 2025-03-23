@@ -2,14 +2,14 @@ import {SafeAreaView, Text, View} from 'react-native';
 import React from 'react';
 import {styles} from './styles';
 
-const Settings = () => {
+const Search = () => {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <Text>Settings</Text>
+        <Text>Search</Text>
       </SafeAreaView>
     </View>
   );
 };
 
-export default Settings;
+export default Search;
