@@ -32,6 +32,8 @@ const Routes = () => {
         <Stack.Screen name="Login" component={Login} />
 
         <Stack.Screen name="Drawer" component={DrawerTabHand} />
+
+        {/* screens */}
       </Stack.Navigator>
     </NavigationContainer>
   );
