@@ -1,5 +1,4 @@
 import React from 'react';
-import {Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -11,6 +10,9 @@ import {useTheme} from '../Utils/Globles';
 //Screens
 import Drawer from '../Layout/Drawer';
 import Home from '../Screens/Main/Home';
+import Chats from '../Screens/Main/Home';
+import Post from '../Screens/Main/Post';
+import Search from '../Screens/Main/Search';
 import Settings from '../Screens/Main/Settings';
 
 import Splash from '../Screens/Auth/Splash';
@@ -26,12 +28,12 @@ const Routes = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{headerShown: false, animation: 'slide_from_right'}}>
+        <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="Login" component={Login} />
+
         <Stack.Screen name="Drawer" component={DrawerTabHand} />
 
-        {/* <Stack.Screen name="Splash" component={Splash} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Settings" component={Settings} /> */}
+        {/* screens */}
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -71,6 +73,9 @@ const BottomTabHandler = (props: any) => {
         flex: 1,
       })}>
       <BottomStack.Screen name={'Home'} component={Home} />
+      <BottomStack.Screen name={'Search'} component={Search} />
+      <BottomStack.Screen name={'Post'} component={Post} />
+      <BottomStack.Screen name={'Chats'} component={Chats} />
       <BottomStack.Screen name={'Settings'} component={Settings} />
     </BottomStack.Navigator>
   );
