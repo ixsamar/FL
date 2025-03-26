@@ -17,6 +17,7 @@ import Settings from '../Screens/Main/Settings';
 
 import Splash from '../Screens/Auth/Splash';
 import Login from '../Screens/Auth/Login';
+import Languages from '../Components/Languages';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 const DrawerStack = createDrawerNavigator<AppStackParamList>();
@@ -32,6 +33,7 @@ const Routes = () => {
         <Stack.Screen name="Login" component={Login} />
 
         <Stack.Screen name="Drawer" component={DrawerTabHand} />
+        <Stack.Screen name="Languages" component={Languages} />
 
         {/* screens */}
       </Stack.Navigator>

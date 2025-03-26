@@ -13,4 +13,6 @@ export type AppStackParamList = {
   //Stack Navigation
   Splash: undefined;
   Login: undefined;
+
+  Languages: undefined;
 };

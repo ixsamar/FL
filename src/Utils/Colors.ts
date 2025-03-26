@@ -1,5 +1,6 @@
-//Colors Set
+import {images} from './Images';
 
+//Colors
 export const COLORS = {
   LightGray: '#EFEFEF',
   DarkBlue: '#001D4C',
@@ -79,4 +80,8 @@ export const COLORS = {
   LightCyan: '#e6fffb',
 };
 
+//Theme Colors
 export const themeColorsUtils = ['#214A2A', '#B68A35', '#D83731', '#28282B'];
+
+//Header Background Image
+export const headerBgImages = [images.headerBlackBg, images.headerGoldBg];

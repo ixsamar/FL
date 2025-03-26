@@ -6,6 +6,13 @@ export const navigateBack = (navigation: any) => {
 };
 
 //Get Language Type
+// export const getLanguage = () => {
+//   return !I18nManager.isRTL ? 'EN' : 'AR';
+// };
+
 export const getLanguage = () => {
-  return !I18nManager.isRTL ? 'EN' : 'AR';
+  if (I18nManager.isRTL) {
+    return 'AR';
+  }
+  return 'EN';
 };
