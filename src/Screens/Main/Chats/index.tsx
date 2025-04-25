@@ -1,15 +1,13 @@
-import {SafeAreaView, Text, View} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
-import {styles} from './styles';
+import UsersChatList from '../../../Components/UsersChatList';
 
-const Home = () => {
+const Chats = ({navigation}: {navigation: any}) => {
   return (
-    <View style={styles.container}>
-      <SafeAreaView>
-        <Text>Home</Text>
-      </SafeAreaView>
+    <View style={{flex: 1}}>
+      <UsersChatList navigation={navigation} />
     </View>
   );
 };
 
-export default Home;
+export default Chats;

@@ -15,4 +15,5 @@ export type AppStackParamList = {
   Login: undefined;
 
   Languages: undefined;
+  Chat: undefined;
 };

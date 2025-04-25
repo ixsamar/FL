@@ -10,7 +10,7 @@ import {useTheme} from '../Utils/Globles';
 //Screens
 import Drawer from '../Layout/Drawer';
 import Home from '../Screens/Main/Home';
-import Chats from '../Screens/Main/Home';
+import Chats from '../Screens/Main/Chats';
 import Post from '../Screens/Main/Post';
 import Search from '../Screens/Main/Search';
 import Settings from '../Screens/Main/Settings';
@@ -18,6 +18,7 @@ import Settings from '../Screens/Main/Settings';
 import Splash from '../Screens/Auth/Splash';
 import Login from '../Screens/Auth/Login';
 import Languages from '../Components/Languages';
+import Chat from '../Components/Chat';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 const DrawerStack = createDrawerNavigator<AppStackParamList>();
@@ -31,9 +32,9 @@ const Routes = () => {
         screenOptions={{headerShown: false, animation: 'slide_from_right'}}>
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Login" component={Login} />
-
         <Stack.Screen name="Drawer" component={DrawerTabHand} />
         <Stack.Screen name="Languages" component={Languages} />
+        <Stack.Screen name="Chat" component={Chat} />
 
         {/* screens */}
       </Stack.Navigator>
@@ -75,9 +76,9 @@ const BottomTabHandler = (props: any) => {
         flex: 1,
       })}>
       <BottomStack.Screen name={'Home'} component={Home} />
-      <BottomStack.Screen name={'Search'} component={Search} />
-      <BottomStack.Screen name={'Post'} component={Post} />
       <BottomStack.Screen name={'Chats'} component={Chats} />
+      <BottomStack.Screen name={'Post'} component={Post} />
+      <BottomStack.Screen name={'Search'} component={Search} />
       <BottomStack.Screen name={'Settings'} component={Settings} />
     </BottomStack.Navigator>
   );

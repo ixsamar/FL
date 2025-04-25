@@ -3,15 +3,17 @@ import React from 'react';
 import {styles} from './styles';
 import HomeHeader from '../../../Components/HomeHeader';
 
-const Chats = () => {
+const Home = () => {
+  console.log('knjhjhjh');
+
   return (
     <View style={styles.container}>
       <SafeAreaView>
         <HomeHeader />
-        <Text>Chats</Text>
+        <Text>Home----</Text>
       </SafeAreaView>
     </View>
   );
 };
 
-export default Chats;
+export default Home;
