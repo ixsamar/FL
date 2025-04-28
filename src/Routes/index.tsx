@@ -26,6 +26,7 @@ import Login from '../Screens/Auth/Login';
 import Languages from '../Components/Languages';
 import Chat from '../Components/Chat';
 import {COLORS} from '../Utils/Colors';
+import Notification from '../Screens/Project/NotChat/Notification';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 const DrawerStack = createDrawerNavigator<AppStackParamList>();
@@ -42,8 +43,7 @@ const Routes = () => {
         <Stack.Screen name="Drawer" component={DrawerTabHand} />
         <Stack.Screen name="Languages" component={Languages} />
         <Stack.Screen name="Chat" component={Chat} />
-
-        {/* screens */}
+        <Stack.Screen name="Notification" component={Notification} />
       </Stack.Navigator>
     </NavigationContainer>
   );

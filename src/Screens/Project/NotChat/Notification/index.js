@@ -1,14 +1,14 @@
 import React from 'react';
 import {View, FlatList, TouchableOpacity, Text, StyleSheet} from 'react-native';
 
-const App = () => {
+const Notification = () => {
   const chatData = [
     {id: '1', sender: 'John', message: 'Hello, how are you?'},
     {id: '2', sender: 'Jane', message: 'I am good, thanks! How about you?'},
     // Add more chat items as needed
   ];
 
-  const Notification = ({item}) => {
+  const Notif = ({item}) => {
     return (
       <TouchableOpacity style={styles.container}>
         <View style={styles.notification}>
@@ -23,7 +23,7 @@ const App = () => {
       <Text>Notification</Text>
       <FlatList
         data={chatData}
-        renderItem={Notification}
+        renderItem={Notif}
         keyExtractor={item => item.id}
       />
     </View>
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Notification;
