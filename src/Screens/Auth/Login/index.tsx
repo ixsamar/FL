@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {SafeAreaView, Text, View, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {styles} from './styles';
 
 const Login = ({navigation}: {navigation: any}) => {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate('Drawer');
+    }, 2000);
+  }, []);
   return (
     <LinearGradient colors={['#6a11cb', '#2575fc']} style={styles.container}>
       <SafeAreaView style={styles.safeArea}>

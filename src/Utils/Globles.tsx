@@ -192,17 +192,6 @@ export const useTheme = () => {
   return context;
 };
 
-//Font Family
-export const FONT = {
-  BOLD: 'Roboto-Bold',
-  SEMI_BOLD: 'Roboto-Medium',
-  REGULAR: 'Roboto-Regular',
-  EXTRA_BOLD: 'Roboto-Black',
-  LIGHT: 'Roboto-Light',
-  MEDIUM: 'Roboto-Medium',
-  NORMAL: 'Roboto-Light',
-};
-
 //Shadow Styles
 export const shadowEffect = {
   shadowOffset: {
@@ -268,4 +257,16 @@ export const showMessage = ({
       backgroundColor: bgColor || COLORS.Gray,
     });
   }, 500);
+};
+
+//Font Family
+export const FONT = {
+  EXTRA_BOLD: 'DMSans-ExtraBold',
+  BOLD: 'DMSans-Bold',
+  SEMI_BOLD: 'DMSans-SemiBold',
+  MEDIUM: 'DMSans-Medium',
+  REGULAR: 'DMSans-Regular',
+  LIGHT: 'DMSans-Light',
+  EXTRA_LIGHT: 'DMSans-ExtraLight',
+  THIN: 'DMSans-Thin',
 };

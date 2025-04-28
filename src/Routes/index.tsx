@@ -76,10 +76,10 @@ const BottomTabHandler = (props: any) => {
         flex: 1,
       })}>
       <BottomStack.Screen name={'Home'} component={Home} />
-      <BottomStack.Screen name={'Chats'} component={Chats} />
+      {/* <BottomStack.Screen name={'Chats'} component={Chats} />
       <BottomStack.Screen name={'Post'} component={Post} />
-      <BottomStack.Screen name={'Search'} component={Search} />
-      <BottomStack.Screen name={'Settings'} component={Settings} />
+      <BottomStack.Screen name={'Search'} component={Search} /> */}
+      {/* <BottomStack.Screen name={'Settings'} component={Settings} /> */}
     </BottomStack.Navigator>
   );
 };
