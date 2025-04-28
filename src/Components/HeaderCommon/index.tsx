@@ -1,14 +1,14 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-const HomeHeader = () => {
+const HeaderCommon = () => {
   return (
     <View>
-      <Text>HomeHeader</Text>
+      <Text>Header Common</Text>
     </View>
   );
 };
 
-export default HomeHeader;
+export default HeaderCommon;
 
 const styles = StyleSheet.create({});

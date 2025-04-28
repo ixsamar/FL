@@ -3,13 +3,14 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {AppStackParamList} from './types';
+import {View} from 'react-native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import {useFont, useTheme} from '../Utils/Globles';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import IconF from 'react-native-vector-icons/Feather';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 //Main Screens
 import Drawer from '../Layout/Drawer';
@@ -25,11 +26,10 @@ import Login from '../Screens/Auth/Login';
 import Languages from '../Components/Languages';
 import Chat from '../Components/Chat';
 import {COLORS} from '../Utils/Colors';
-import {Text, View} from 'react-native';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 const DrawerStack = createDrawerNavigator<AppStackParamList>();
-const BottomStack = createMaterialTopTabNavigator<AppStackParamList>();
+const BottomStack = createBottomTabNavigator<AppStackParamList>();
 
 //Stack Navigation
 const Routes = () => {
@@ -75,21 +75,19 @@ const BottomTabHandler = () => {
   const {themeColors} = useTheme();
   const {FONT_SIZE} = useFont();
 
-  const TabBarIcon = (iconName: string, focused: boolean) => {
-    return (
-      <View
-        style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: focused ? COLORS.MintGreen : 'transparent',
-          paddingHorizontal: hp('2.1%'),
-          paddingVertical: hp('0.5%'),
-          borderRadius: hp('1.5%'),
-        }}>
-        <IconF name={iconName} size={hp('2.3%')} color={COLORS.DarkBlack} />
-      </View>
-    );
-  };
+  const TabBarIcon = (iconName: string, focused: boolean) => (
+    <View
+      style={{
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: focused ? COLORS.MintGreen : 'transparent',
+        borderRadius: hp('1.5%'),
+        height: hp('3.2%'),
+        width: hp('5.5%'),
+      }}>
+      <IconF name={iconName} size={hp('2.3%')} color={COLORS.DarkBlack} />
+    </View>
+  );
 
   const screens = [
     {name: 'Home', component: Home, icon: 'home'},
@@ -102,39 +100,25 @@ const BottomTabHandler = () => {
   return (
     <BottomStack.Navigator
       screenOptions={{
-        tabBarShowIcon: true,
-        tabBarLabelStyle: {
-          fontSize: FONT_SIZE.F_15,
-          fontWeight: 'bold',
-          color: COLORS.MintGreen,
-          textTransform: 'capitalize',
-        },
+        headerShown: false,
         tabBarStyle: {
           backgroundColor: themeColors.backGroundColor,
+          height: hp('8.7%'),
         },
-        swipeEnabled: true,
-        tabBarIndicatorStyle: {backgroundColor: 'transparent'},
-      }}
-      tabBarPosition="bottom">
+        tabBarActiveTintColor: COLORS.MintGreen,
+        tabBarInactiveTintColor: COLORS.DarkBlack,
+        tabBarLabelStyle: {
+          fontSize: FONT_SIZE.F_14,
+          color: COLORS.DarkBlack,
+          paddingTop: hp('0.5%'),
+        },
+      }}>
       {screens.map(({name, component, icon}) => (
         <BottomStack.Screen
           key={name}
           name={name}
           component={component}
           options={{
-            tabBarLabel: ({focused}) => (
-              <Text
-                style={{
-                  fontSize: FONT_SIZE.F_14,
-                  fontWeight: 'bold',
-                  color: COLORS.DarkBlack,
-                  textAlign: 'center',
-                  marginBottom: hp('1.5%'),
-                  marginTop: hp('0.5%'),
-                }}>
-                {name}
-              </Text>
-            ),
             tabBarIcon: ({focused}) => TabBarIcon(icon, focused),
           }}
         />

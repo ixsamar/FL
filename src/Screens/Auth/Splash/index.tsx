@@ -10,7 +10,7 @@ const Splash = ({navigation}: {navigation: any}) => {
   useEffect(() => {
     setTimeout(() => {
       navigation.replace('Drawer');
-    }, 2000);
+    }, 0);
   }, []);
 
   return (

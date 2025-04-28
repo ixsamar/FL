@@ -6,7 +6,6 @@ import {
   Switch,
   I18nManager,
   ScrollView,
-  Linking,
 } from 'react-native';
 import {
   heightPercentageToDP as hp,
@@ -59,10 +58,6 @@ const Settings: React.FC<SettingsProps> = ({navigation}) => {
       },
     },
   };
-
-  // console.log('---->', commonLabels?.['EN']?.UI_LABELS?.SETTINGS || 'Settings');
-
-  // const {data: commonLabels} = useLoginConfigurationQuery();
 
   const isDarkMode = useAppSelector(state => state.mainStore.isDarkMode);
   const dispatch = useAppDispatch();
@@ -178,86 +173,10 @@ const Settings: React.FC<SettingsProps> = ({navigation}) => {
       <ScrollView
         contentContainerStyle={styles.settingsBodyContainer}
         style={{backgroundColor: backGroundColor}}>
-        {/* Accessibility */}
-        <>
-          <Animatable.View
-            style={{marginHorizontal: hp('0.5%')}}
-            animation="bounceInLeft"
-            iterationCount={1}
-            duration={1500}>
-            <TouchableOpacity
-              onPress={() => {
-                Linking.openSettings();
-              }}
-              style={[
-                styles.accessibilityAndDashboardContainer,
-                styles.shadow,
-                {backgroundColor: primaryColor, marginTop: hp('2.3%')},
-              ]}>
-              <View>
-                <Text
-                  style={[
-                    styles.fontStyle,
-                    {color: headerTextColor, fontSize: FONT_SIZE.F_14},
-                  ]}>
-                  {commonLabels?.[language]?.UI_LABELS?.ACCESSBILITY ||
-                    'Accessibility'}
-                </Text>
-              </View>
-              <View
-                style={{
-                  transform: [{scaleX: I18nManager.isRTL === true ? -1 : 1}],
-                }}>
-                <ArrowRight height={hp('2%')} width={wp('3%')} />
-              </View>
-            </TouchableOpacity>
-          </Animatable.View>
-        </>
-
-        {/* Customize my dashboard */}
-        <>
-          <Animatable.View
-            style={{marginHorizontal: hp('0.5%')}}
-            animation="bounceInLeft"
-            iterationCount={1}
-            delay={35}
-            duration={1500}>
-            <TouchableOpacity
-              // onPress={() => {
-              //   addPassToWallet();
-              // }}
-              style={[
-                styles.accessibilityAndDashboardContainer,
-                styles.shadow,
-                {backgroundColor: primaryColor},
-              ]}>
-              <View>
-                <Text
-                  style={[
-                    styles.fontStyle,
-                    {
-                      color: themeColors.headerTextColor,
-                      fontSize: FONT_SIZE.F_14,
-                    },
-                  ]}>
-                  {commonLabels?.[language]?.UI_LABELS
-                    ?.CUSTOMIZE_MY_DASHBOARD || 'Customize my dashboard'}
-                </Text>
-              </View>
-              <View
-                style={{
-                  transform: [{scaleX: I18nManager.isRTL === true ? -1 : 1}],
-                }}>
-                <ArrowRight height={hp('2%')} width={wp('3%')} />
-              </View>
-            </TouchableOpacity>
-          </Animatable.View>
-        </>
-
         {/* Language */}
         <>
           <Animatable.View
-            style={{marginHorizontal: hp('0.5%')}}
+            style={{marginHorizontal: hp('0.5%'), marginTop: hp('1.5%')}}
             animation="bounceInLeft"
             iterationCount={1}
             delay={35 * 2}
