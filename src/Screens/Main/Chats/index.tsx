@@ -22,38 +22,14 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import {styles} from './styles';
+import {chatUsersAPIData} from '../../../APIServices/dummyApisData';
 
 const Chats = ({navigation}: {navigation: any}) => {
   const [searchFlag, setSearchFlag] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const [filteredData, setFilteredData] = useState<any[]>([]);
 
-  const [data, setData] = useState([
-    {
-      id: 1,
-      userName: 'Palavi Naidu',
-      userProfession: 'React Native Developer',
-      userDistance: '0.5 kM',
-      image:
-        'https://images.unsplash.com/photo-1626193081943-7edeae05ef83?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGluZGlhbiUyMG1vZGVsfGVufDB8fDB8fHww',
-    },
-    {
-      id: 2,
-      userName: 'Samar Reddy',
-      userProfession: 'ReactNative Developer',
-      userDistance: '0.5 kM',
-      image:
-        'https://t4.ftcdn.net/jpg/02/96/22/19/360_F_296221961_hevquijWgjPZRZLGq88Yxc5yYezvf05C.jpg',
-    },
-    {
-      id: 3,
-      userName: 'Palavi Naidu',
-      userProfession: 'ReactNative Developer',
-      userDistance: '0.5 kM',
-      image:
-        'https://images.unsplash.com/photo-1626193081943-7edeae05ef83?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGluZGlhbiUyMG1vZGVsfGVufDB8fDB8fHww',
-    },
-  ]);
+  const [usersData, setUsersData] = useState(chatUsersAPIData || []);
 
   const [dpModal, setDpModal] = useState(false);
   const [dpUrl, setDpUrl] = useState<string | null>(null);
@@ -63,11 +39,11 @@ const Chats = ({navigation}: {navigation: any}) => {
   const [modalScale] = useState(new Animated.Value(0));
 
   useEffect(() => {
-    const filterData = data.filter(item =>
+    const filterData = usersData.filter(item =>
       item.userName.toLowerCase().includes(searchValue.toLowerCase()),
     );
     setFilteredData(filterData);
-  }, [searchValue, data]);
+  }, [searchValue, usersData]);
 
   const handleSearchClear = () => {
     setSearchValue('');
@@ -91,7 +67,9 @@ const Chats = ({navigation}: {navigation: any}) => {
   };
 
   const handleChat = (userData: any) => {
-    navigation.navigate('Chat', {userData});
+    console.log('userData--222->', userData);
+
+    navigation.navigate('Chat', {userData: userData});
   };
 
   const handleLike = () => {
@@ -175,7 +153,7 @@ const Chats = ({navigation}: {navigation: any}) => {
         )}
 
         <FlatList
-          data={searchFlag ? filteredData : data}
+          data={searchFlag ? filteredData : usersData}
           renderItem={renderFriendsList}
           keyExtractor={item => item.id.toString()}
           showsVerticalScrollIndicator={false}

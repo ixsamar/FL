@@ -1,3 +1,5 @@
+import {useState} from 'react';
+
 //Languages
 export const languagesData = [
   {
@@ -880,5 +882,188 @@ export const filterUserData = [
       email: 'sheetal.kapoor@gmail.com',
       whatsapp: '+91 9101234567',
     },
+  },
+];
+
+// Dummy data for notifications
+export const notificationsAPIData = [
+  {
+    id: 1,
+    name: 'Simran',
+    dateTime: '2025-05-09T10:30:00Z',
+    type: 'FriendRequest',
+    action: 'Follow',
+    description: 'Simran sent you a friend request.',
+    profileImage:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVVYrDgjzBI-B7Wz5EcQSYvlOCmFzrGctQrA&s',
+  },
+  {
+    id: 2,
+    name: 'Reddy',
+    dateTime: '2025-05-09T09:15:00Z',
+    type: 'EventInvite',
+    action: 'Invited',
+    description: 'Reddy invited you to the “Tech Meetup 2025” event.',
+    eventId: 'event_123',
+  },
+  {
+    id: 3,
+    name: 'Simha',
+    dateTime: '2025-05-08T17:00:00Z',
+    type: 'ProfileView',
+    action: 'Viewed',
+    description: 'Simha viewed your profile.',
+  },
+  {
+    id: 4,
+    name: 'Manu',
+    dateTime: '2025-05-07T14:00:00Z',
+    type: 'PhotoShare',
+    action: 'Shared',
+    description: 'Manu shared a photo with you.',
+    imageUrl:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVVYrDgjzBI-B7Wz5EcQSYvlOCmFzrGctQrA&s',
+  },
+  {
+    id: 5,
+    name: 'Bhaskar',
+    dateTime: '2025-05-05T13:20:00Z',
+    type: 'Like',
+    action: 'Liked',
+    description: 'Bhaskar liked your event “Summer Trip 2025”.',
+    eventId: 'event_456',
+  },
+  {
+    id: 6,
+    name: 'Anusha',
+    dateTime: '2025-05-02T11:10:00Z',
+    type: 'Comment',
+    action: 'Commented',
+    description: 'Anusha commented on your photo.',
+  },
+  {
+    id: 7,
+    name: 'Kiran',
+    dateTime: '2025-04-30T08:00:00Z',
+    type: 'Message',
+    action: 'Messaged',
+    description: 'Kiran sent you a message.',
+  },
+  {
+    id: 8,
+    name: 'Divya',
+    dateTime: '2025-04-25T18:45:00Z',
+    type: 'EventReminder',
+    action: 'Reminder',
+    description: 'Reminder: “Design Hackathon 2025” is tomorrow.',
+    eventId: 'event_789',
+  },
+  {
+    id: 9,
+    name: 'Raj',
+    dateTime: '2025-04-20T15:30:00Z',
+    type: 'FriendAccept',
+    action: 'Accepted',
+    description: 'Raj accepted your friend request.',
+  },
+  {
+    id: 10,
+    name: 'Sita',
+    dateTime: '2025-03-18T12:00:00Z',
+    type: 'StoryReaction',
+    action: 'Reacted',
+    description: 'Sita reacted to your story.',
+  },
+  {
+    id: 11,
+    name: 'Vamsi',
+    dateTime: '2025-03-01T09:30:00Z',
+    type: 'GroupJoin',
+    action: 'Joined',
+    description: 'Vamsi joined your group “React Devs”.',
+  },
+  {
+    id: 12,
+    name: 'Lakshmi',
+    dateTime: '2025-02-25T10:00:00Z',
+    type: 'Tag',
+    action: 'Tagged',
+    description: 'Lakshmi tagged you in a post.',
+  },
+];
+
+//Chat Users Data
+export const chatUsersAPIData = [
+  {
+    id: 1,
+    userName: 'Radhamma',
+    userProfession: 'React Native Developer',
+    userDistance: '0.5 km',
+    image:
+      'https://images.unsplash.com/photo-1626193081943-7edeae05ef83?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGluZGlhbiUyMG1vZGVsfGVufDB8fDB8fHww',
+  },
+  {
+    id: 2,
+    userName: 'Samar Reddy',
+    userProfession: 'ReactNative Developer',
+    userDistance: '0.5 km',
+    image:
+      'https://t4.ftcdn.net/jpg/02/96/22/19/360_F_296221961_hevquijWgjPZRZLGq88Yxc5yYezvf05C.jpg',
+  },
+  {
+    id: 3,
+    userName: 'Palavi Reddy',
+    userProfession: 'ReactNative Developer',
+    userDistance: '0.5 km',
+    image: 'https://randomuser.me/api/portraits/women/45.jpg',
+  },
+  {
+    id: 4,
+    userName: 'Ritika Sharma',
+    userProfession: 'UI/UX Designer',
+    userDistance: '1.2 km',
+    image: 'https://randomuser.me/api/portraits/women/65.jpg',
+  },
+  {
+    id: 5,
+    userName: 'Arjun Das',
+    userProfession: 'Backend Engineer',
+    userDistance: '0.9 km',
+    image: 'https://randomuser.me/api/portraits/men/75.jpg',
+  },
+  {
+    id: 6,
+    userName: 'Sneha Mehta',
+    userProfession: 'Flutter Developer',
+    userDistance: '1.4 km',
+    image: 'https://randomuser.me/api/portraits/women/44.jpg',
+  },
+  {
+    id: 7,
+    userName: 'Rahul Yadav',
+    userProfession: 'DevOps Engineer',
+    userDistance: '2.1 km',
+    image: 'https://randomuser.me/api/portraits/men/33.jpg',
+  },
+  {
+    id: 8,
+    userName: 'Deepika Rao',
+    userProfession: 'Full Stack Developer',
+    userDistance: '1.7 km',
+    image: 'https://randomuser.me/api/portraits/women/21.jpg',
+  },
+  {
+    id: 9,
+    userName: 'Karthik Kumar',
+    userProfession: 'Product Manager',
+    userDistance: '3.0 km',
+    image: 'https://randomuser.me/api/portraits/men/90.jpg',
+  },
+  {
+    id: 10,
+    userName: 'Ishita Verma',
+    userProfession: 'Data Scientist',
+    userDistance: '2.5 km',
+    image: 'https://randomuser.me/api/portraits/women/78.jpg',
   },
 ];

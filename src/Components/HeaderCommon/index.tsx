@@ -11,6 +11,8 @@ import {COLORS} from '../../Utils/Colors';
 import IconE from 'react-native-vector-icons/Entypo';
 import IconO from 'react-native-vector-icons/Octicons';
 import IconFA from 'react-native-vector-icons/FontAwesome';
+import IconI from 'react-native-vector-icons/Ionicons';
+
 import {styles} from './styles';
 
 type HeaderCommonProps = {
@@ -19,11 +21,13 @@ type HeaderCommonProps = {
     location?: string;
     userPhoto?: string;
   };
-  onDotsPress: () => void;
-  screenName: string;
-  onNotificationPress: () => void;
+  onDotsPress?: () => void;
+  screenName?: string;
+  // onNotificationPress?: () => void;
   isBackButton?: boolean;
   showOptions?: boolean;
+  showNotification?: boolean;
+  isManageNotifications?: boolean;
 };
 
 const HeaderCommon: React.FC<HeaderCommonProps> = ({
@@ -34,9 +38,11 @@ const HeaderCommon: React.FC<HeaderCommonProps> = ({
   },
   onDotsPress,
   screenName,
-  onNotificationPress,
-  isBackButton = false,
-  showOptions = false,
+  // onNotificationPress,
+  isBackButton,
+  showOptions,
+  showNotification,
+  isManageNotifications,
 }) => {
   const {themeColors} = useTheme();
   const {FONT_SIZE} = useFont();
@@ -48,6 +54,10 @@ const HeaderCommon: React.FC<HeaderCommonProps> = ({
 
   const onLocationPress = () => {
     navigation.navigate('MyLocation');
+  };
+
+  const onNotificationPress = () => {
+    navigation.navigate('Notification');
   };
 
   return (
@@ -134,11 +144,39 @@ const HeaderCommon: React.FC<HeaderCommonProps> = ({
             style={{marginHorizontal: hp('1%')}}>
             <IconO name={'heart'} size={hp('2.4%')} color={COLORS.DarkBlack} />
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={onNotificationPress}
-            style={{marginHorizontal: hp('1%')}}>
-            <IconO name={'heart'} size={hp('2.4%')} color={COLORS.DarkBlack} />
-          </TouchableOpacity> */}
+
+       
+         */}
+
+          {/* Notification */}
+          <>
+            {showNotification && (
+              <TouchableOpacity
+                onPress={onNotificationPress}
+                style={{marginHorizontal: hp('1%')}}>
+                <IconO
+                  name={'heart'}
+                  size={hp('2.4%')}
+                  color={COLORS.DarkBlack}
+                />
+              </TouchableOpacity>
+            )}
+          </>
+
+          {/* Manage Notification */}
+          <>
+            {isManageNotifications && (
+              <TouchableOpacity
+                onPress={onNotificationPress}
+                style={{marginHorizontal: hp('1%')}}>
+                <IconI
+                  name={'notifications-outline'}
+                  size={hp('2.4%')}
+                  color={COLORS.DarkBlack}
+                />
+              </TouchableOpacity>
+            )}
+          </>
 
           {/* Options */}
           <>

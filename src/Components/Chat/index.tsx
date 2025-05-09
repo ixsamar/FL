@@ -21,8 +21,17 @@ import {
 
 import {styles} from './styles';
 import {formatTimestamp, navigateBack} from '../../Utils/CommonUtils';
+import HeaderCommon from '../HeaderCommon';
+import ChatHeader from './chatHeader';
+import IconI from 'react-native-vector-icons/Ionicons';
 
-const Chat = () => {
+import IconE from 'react-native-vector-icons/Entypo';
+import {COLORS} from '../../Utils/Colors';
+
+const Chat = ({route}: {route: any}) => {
+  const {userData} = route.params;
+  console.log('userData---->', userData?.image);
+
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
   const [editingMessageId, setEditingMessageId] = useState(null);
@@ -105,26 +114,8 @@ const Chat = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.userCard}>
-        <View style={styles.userNameContainer}>
-          <TouchableOpacity onPress={navigateBack}>
-            <Text>{'<'}</Text>
-          </TouchableOpacity>
-          <View style={styles.dpAndName}>
-            <Image
-              source={{
-                url: 'https://pxbar.com/wp-content/uploads/2023/10/stylish-whatsapp-dp-for-girl-1024x1024.jpg',
-              }}
-              style={{height: hp('4%'), width: wp('10%')}}
-            />
+      <ChatHeader userData={userData} />
 
-            <Text style={styles.userName}>Shyam Reddy</Text>
-          </View>
-        </View>
-        <TouchableOpacity>
-          <Text>Event</Text>
-        </TouchableOpacity>
-      </View>
       <View style={{backgroundColor: '#f4f4f4', flex: 1}}>
         <FlatList
           ref={flatListRef}
@@ -147,6 +138,7 @@ const Chat = () => {
         />
       </View>
 
+      {/* Input and Send */}
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.inputContainer}>
@@ -161,29 +153,49 @@ const Chat = () => {
           placeholder="Type your message"
           onChangeText={setMessage}
           onFocus={() => setShowEmojiSelector(false)}
+          autoFocus
+          multiline
+          numberOfLines={2}
+          maxLength={200}
+          scrollEnabled={false}
         />
-        <Button
-          title={editingMessageId ? 'Submit' : 'Send'}
-          onPress={sendMsg}
-          disabled={message.length === 0}
-        />
-        <Button
-          title="Receive"
+
+        <TouchableOpacity
           onPress={receiveMsg}
           disabled={message.length === 0}
-        />
+          style={{height: hp('2%'), width: wp('6%')}}>
+          <IconI
+            name={'arrow-undo-sharp'}
+            size={hp('2.5%')}
+            color={COLORS.DarkBlack}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={sendMsg}
+          disabled={message.length === 0}
+          style={{height: hp('2%'), width: wp('6%')}}>
+          <IconI
+            name={editingMessageId ? 'refresh-circle-sharp' : 'send'}
+            size={hp('2%')}
+            color={COLORS.DarkBlack}
+          />
+        </TouchableOpacity>
       </KeyboardAvoidingView>
 
-      {showEmojiSelector && (
-        <View style={{height: hp('30%')}}>
-          <EmojiSelector
-            onEmojiSelected={handleEmojiSelection}
-            columns={9}
-            showSearchBar={false}
-            showSectionTitles={false}
-          />
-        </View>
-      )}
+      {/* Emoji's */}
+      <>
+        {showEmojiSelector && (
+          <View style={{height: hp('30%')}}>
+            <EmojiSelector
+              onEmojiSelected={handleEmojiSelection}
+              columns={9}
+              showSearchBar={false}
+              showSectionTitles={false}
+            />
+          </View>
+        )}
+      </>
     </SafeAreaView>
   );
 };

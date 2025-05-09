@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#ccc',
     backgroundColor: '#fff',
+    justifyContent: 'center',
   },
   input: {
     flex: 1,
@@ -26,7 +27,11 @@ export const styles = StyleSheet.create({
     paddingVertical: hp('1%'),
     fontSize: wp('4%'),
     marginRight: wp('3%'),
+    marginBottom: hp('1%'),
+    textAlignVertical: 'top',
+    maxHeight: hp('20%'),
   },
+
   emojiButton: {
     fontSize: wp('6%'),
   },
