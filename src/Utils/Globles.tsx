@@ -126,7 +126,7 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({children}) => {
   const defaultThemes = {
     themeColor: '#B68A35',
-    backGroundColor: '#EFEFEF',
+    backGroundColor: '#fff',
     primaryColor: '#fff',
     headerTextColor: 'black',
     titleTextColor: '#000000',
@@ -170,12 +170,12 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({children}) => {
   return (
     <ThemeContext.Provider
       value={{
-        themeColor: themeColors.themeColor,
-        backGroundColor: themeColors.backGroundColor,
-        primaryColor: themeColors.primaryColor,
-        headerTextColor: themeColors.headerTextColor,
-        titleTextColor: themeColors.titleTextColor,
-        subtitleTextColor: themeColors.subtitleTextColor,
+        // themeColor: themeColors.themeColor,
+        // backGroundColor: themeColors.backGroundColor,
+        // primaryColor: themeColors.primaryColor,
+        // headerTextColor: themeColors.headerTextColor,
+        // titleTextColor: themeColors.titleTextColor,
+        // subtitleTextColor: themeColors.subtitleTextColor,
         themeColors: themeColors,
         updateColor,
       }}>

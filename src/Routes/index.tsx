@@ -13,7 +13,7 @@ import IconF from 'react-native-vector-icons/Feather';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 //Main Screens
-import Drawer from '../Layout/Drawer';
+// import Drawer from '../Layout/Drawer';
 import Home from '../Screens/Main/Home';
 import Chats from '../Screens/Main/Chats';
 import Post from '../Screens/Main/Post';
@@ -27,9 +27,11 @@ import Languages from '../Components/Languages';
 import Chat from '../Components/Chat';
 import {COLORS} from '../Utils/Colors';
 import Notification from '../Screens/Project/NotChat/Notification';
+import Profile from '../Screens/Project/Profile';
+import MyLocation from '../Screens/Project/MyLocation';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
-const DrawerStack = createDrawerNavigator<AppStackParamList>();
+// const DrawerStack = createDrawerNavigator<AppStackParamList>();
 const BottomStack = createBottomTabNavigator<AppStackParamList>();
 
 //Stack Navigation
@@ -40,35 +42,44 @@ const Routes = () => {
         screenOptions={{headerShown: false, animation: 'slide_from_right'}}>
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Drawer" component={DrawerTabHand} />
+        <Stack.Screen name="Drawer" component={BottomTabHandler} />
         <Stack.Screen name="Languages" component={Languages} />
         <Stack.Screen name="Chat" component={Chat} />
         <Stack.Screen name="Notification" component={Notification} />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          // options={{
+          //   presentation: 'modal',
+          //   animation: 'slide_from_top',
+          // }}
+        />
+        <Stack.Screen name="MyLocation" component={MyLocation} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
 //Drawer Navigation
-const DrawerTabHand = () => {
-  const {themeColors} = useTheme();
-  return (
-    <DrawerStack.Navigator
-      screenOptions={{
-        headerShown: false,
-        drawerStyle: {
-          width: wp('100%'),
-        },
-      }}
-      drawerContent={props => (
-        <>
-          <Drawer {...props} />
-        </>
-      )}>
-      <DrawerStack.Screen name="HomeMain" component={BottomTabHandler} />
-    </DrawerStack.Navigator>
-  );
-};
+// const DrawerTabHand = () => {
+//   const {themeColors} = useTheme();
+//   return (
+//     <DrawerStack.Navigator
+//       screenOptions={{
+//         headerShown: false,
+//         drawerStyle: {
+//           width: wp('100%'),
+//         },
+//       }}
+//       drawerContent={props => (
+//         <>
+//           <Drawer {...props} />
+//         </>
+//       )}>
+//       <DrawerStack.Screen name="HomeMain" component={BottomTabHandler} />
+//     </DrawerStack.Navigator>
+//   );
+// };
 
 //Bottom Navigation
 const BottomTabHandler = () => {

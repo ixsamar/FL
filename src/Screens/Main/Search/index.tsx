@@ -101,15 +101,20 @@
 
 // export default Search;
 
-import {SafeAreaView, View} from 'react-native';
+import {SafeAreaView, Text, View} from 'react-native';
 import React from 'react';
-import FilterSearch from '../../../Components/FilterSearch';
+import {styles} from './styles';
+import HeaderCommon from '../../../Components/HeaderCommon';
+import {COLORS} from '../../../Utils/Colors';
+import {useTheme} from '../../../Utils/Globles';
 
 const Search = () => {
+  const {themeColors} = useTheme();
   return (
-    <View style={{flex: 1}}>
-      <SafeAreaView style={{flex: 1}}>
-        <FilterSearch />
+    <View style={styles.container}>
+      <SafeAreaView
+        style={{flex: 1, backgroundColor: themeColors.backGroundColor}}>
+        <HeaderCommon screenName="Search" showOptions />
       </SafeAreaView>
     </View>
   );

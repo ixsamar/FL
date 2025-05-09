@@ -15,13 +15,13 @@ const Splash = ({navigation}: {navigation: any}) => {
 
   return (
     <LinearGradient colors={['#6a11cb', '#2575fc']} style={styles.container}>
-      {/* <Text
+      <Text
         style={[
           styles.title,
           {fontSize: FONT_SIZE.F_18, fontFamily: FONT.BOLD},
         ]}>
-        MyApp
-      </Text> */}
+        Skeleton App
+      </Text>
       <ActivityIndicator size="large" color="#fff" />
     </LinearGradient>
   );

@@ -186,7 +186,7 @@ const Settings: React.FC<SettingsProps> = ({navigation}) => {
               style={[
                 styles.accessibilityAndDashboardContainer,
                 styles.shadow,
-                {backgroundColor: primaryColor},
+                {backgroundColor: themeColors.primaryColor},
               ]}>
               <Text
                 style={[
@@ -219,7 +219,7 @@ const Settings: React.FC<SettingsProps> = ({navigation}) => {
               style={[
                 styles.modeNotificationsContainer,
                 styles.shadow,
-                {backgroundColor: primaryColor},
+                {backgroundColor: themeColors.primaryColor},
               ]}>
               <View>
                 <Text
@@ -236,7 +236,9 @@ const Settings: React.FC<SettingsProps> = ({navigation}) => {
                   trackColor={{false: backGroundColor, true: themeColor}}
                   thumbColor="#fff"
                   ios_backgroundColor={
-                    isDarkMode === 'light' ? backGroundColor : primaryColor
+                    isDarkMode === 'light'
+                      ? backGroundColor
+                      : themeColors.primaryColor
                   }
                   value={themeColors.isDarkMode}
                   onValueChange={changeThemeMode}
@@ -258,7 +260,7 @@ const Settings: React.FC<SettingsProps> = ({navigation}) => {
               style={[
                 styles.modeNotificationsContainer,
                 styles.shadow,
-                {backgroundColor: primaryColor},
+                {backgroundColor: themeColors.primaryColor},
               ]}>
               <View>
                 <Text
@@ -278,7 +280,9 @@ const Settings: React.FC<SettingsProps> = ({navigation}) => {
                   trackColor={{false: backGroundColor, true: themeColor}}
                   thumbColor="#fff"
                   ios_backgroundColor={
-                    isDarkMode === 'light' ? backGroundColor : primaryColor
+                    isDarkMode === 'light'
+                      ? backGroundColor
+                      : themeColors.primaryColor
                   }
                   value={notificationOn}
                   onValueChange={toggleNotificationSwitch}
@@ -300,7 +304,7 @@ const Settings: React.FC<SettingsProps> = ({navigation}) => {
               style={[
                 styles.fontSizeContainer,
                 styles.shadow,
-                {backgroundColor: primaryColor},
+                {backgroundColor: themeColors.primaryColor},
               ]}>
               <View>
                 <Text
@@ -340,13 +344,19 @@ const Settings: React.FC<SettingsProps> = ({navigation}) => {
                       }
                     }}
                     minimumTrackTintColor={
-                      themeColor === '#28282B' ? COLORS.SilverGray : themeColor
+                      themeColors.themeColor === '#28282B'
+                        ? COLORS.SilverGray
+                        : themeColors.themeColor
                     }
                     maximumTrackTintColor={
-                      themeColor !== '#28282B' ? COLORS.SilverGray : themeColor
+                      themeColors.themeColor !== '#28282B'
+                        ? COLORS.SilverGray
+                        : themeColors.themeColor
                     }
                     thumbTintColor={
-                      themeColor === '#28282B' ? COLORS.SilverGray : themeColor
+                      themeColors.themeColor === '#28282B'
+                        ? COLORS.SilverGray
+                        : themeColors.themeColor
                     }
                     tapToSeek={true}
                   />
@@ -413,7 +423,7 @@ const Settings: React.FC<SettingsProps> = ({navigation}) => {
               style={[
                 styles.accessibilityAndDashboardContainer,
                 styles.shadow,
-                {backgroundColor: primaryColor},
+                {backgroundColor: themeColors.primaryColor},
               ]}>
               <View>
                 <Text

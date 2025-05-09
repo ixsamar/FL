@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginLeft: hp('1.5%'),
+    marginHorizontal: hp('1.5%'),
   },
   profileTouch: {
     flexDirection: 'row',
@@ -42,7 +42,6 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginRight: hp('2%'),
     marginTop: hp('0.5%'),
   },
   iconContiner: {

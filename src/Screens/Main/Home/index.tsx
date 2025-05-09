@@ -4,10 +4,13 @@ import HeaderCommon from '../../../Components/HeaderCommon';
 
 const Home = () => {
   const profileData = {
-    name: 'SamaraSimhaReddy.K',
-    profession: 'React Native Developer',
     userPhoto: '',
+    name: 'SamaraSimhaReddy',
+    location: 'Hyderabad',
   };
+
+  console.log(profileData);
+
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <SafeAreaView style={{flex: 1}}>
@@ -19,6 +22,7 @@ const Home = () => {
           onNotificationPress={() => {
             console.log('sss');
           }}
+          showOptions
         />
       </SafeAreaView>
     </View>
